@@ -50,6 +50,9 @@ class NanoProfiler:
             previous_time = value['time']
 
     def print_stat(self):
+        if not self._was_started:
+            return
+
         stat = self.get_stat()
 
         print('{:-^80}'.format('Statistic of profiler ' + self.name))
