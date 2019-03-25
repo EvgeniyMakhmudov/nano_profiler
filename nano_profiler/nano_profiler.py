@@ -52,6 +52,7 @@ class NanoProfiler:
 
             yield (index, label, diff_time, diff_percentage)
             previous_time = value['time']
+        yield ('Total', 'profiler', all_time, 100)
 
     def print_stat(self):
         if not self._was_started:
