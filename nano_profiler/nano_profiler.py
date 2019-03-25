@@ -42,11 +42,15 @@ class NanoProfiler:
         it = iter(self._points)
         start = next(it)
 
+        all_time = self._points[-1]['time'] - start['time']
+
         previous_time = start['time']
         for index, value in enumerate(it, start=1):
             label = value['label']
             diff_time = value['time'] - previous_time
-            yield (index, label, diff_time)
+            diff_percentage = round(diff_time / all_time * 100, 2)
+
+            yield (index, label, diff_time, diff_percentage)
             previous_time = value['time']
 
     def print_stat(self):
@@ -56,8 +60,9 @@ class NanoProfiler:
         stat = self.get_stat()
 
         print('{:-^80}'.format('Statistic of profiler ' + self.name))
-        for index, label, diff in stat:
-            print('{}: {} execute in {:0.3f} seconds'.format(index, label, diff))
+        for index, label, diff, per in stat:
+            print('{}: {} execute in {:0.3f} seconds or {:2.2f}%'
+                  ''.format(index, label, diff, per))
 
     def __del__(self):
         self.print_stat()
