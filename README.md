@@ -31,7 +31,8 @@ baz()
 Output:
 ```
 -------------------Statistic of profiler Foo bar baz profiler-------------------
-1: Foo execute in 0.102 seconds
-2: bar execute in 0.100 seconds
-3: baz execute in 0.000 seconds
+1: Foo execute in 0.100 seconds or 50.00%
+2: bar execute in 0.100 seconds or 50.00%
+3: baz execute in 0.000 seconds or 0.00%
+Total: profiler execute in 0.200 seconds or 100.00%
 ```
