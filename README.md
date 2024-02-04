@@ -10,29 +10,35 @@ from time import sleep
 
 from nano_profiler import NanoProfiler
 
-n_p = NanoProfiler(name='Foo bar baz profiler', autostart=True)
+n_p = NanoProfiler(name='Foo Bar Baz profiler', autostart=True)
 
 def foo():
     sleep(0.1)
     n_p.mark('Foo')
 
 def bar():
-    sleep(0.1)
-    n_p.mark('bar')
+    sleep(0.125)
+    n_p.mark('Bar')
 
 def baz():
     foo()
     bar()
-    n_p.mark('baz')
+    n_p.mark('Baz')
 
 baz()
 ```
 
 Output:
 ```
--------------------Statistic of profiler Foo bar baz profiler-------------------
-1: Foo execute in 0.100 seconds or 50.00%
-2: bar execute in 0.100 seconds or 50.00%
-3: baz execute in 0.000 seconds or 0.00%
-Total: profiler execute in 0.200 seconds or 100.00%
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Statistic of profiler "Foo Bar Baz" ┃
+┡━━━┯━━━━━━━━┯━━━━━━━━━┯━━━━━━━━━━━━━━┦
+│ 1 │ 0.100s │  44.45% │ Foo          │
+├───┼────────┼─────────┼──────────────┤
+│ 2 │ 0.125s │  55.55% │ Bar          │
+├───┼────────┼─────────┼──────────────┤
+│ 3 │ 0.000s │   0.00% │ Baz          │
+┢━━━╈━━━━━━━━╈━━━━━━━━━╈━━━━━━━━━━━━━━┪
+┃   ┃ 0.225s ┃ 100.00% ┃ Total        ┃
+┗━━━┻━━━━━━━━┻━━━━━━━━━┻━━━━━━━━━━━━━━┛
 ```
