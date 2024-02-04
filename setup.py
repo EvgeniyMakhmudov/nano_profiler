@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 VERSION = '0.2'
 
-long_description = open('README.md', encoding='utf-8').read()
+long_description = open('readme.rst', encoding='utf-8').read()
 
 setup(
     name='nano_profiler',
