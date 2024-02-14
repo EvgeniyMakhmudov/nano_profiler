@@ -95,7 +95,7 @@ class NanoProfiler:
         # print header
         print('┏' + '━' * (total_line_length - 2) + '┓')
         caption_align_left = (total_line_length - 2 - len(caption)) // 2
-        caption_align_right = not bool(caption_align_left % 2) if caption_align_left > 0 else 0
+        caption_align_right = total_line_length - 2 - len(caption) - caption_align_left
         print('┃' + ' ' * caption_align_left + caption + ' ' * caption_align_right + '┃')
         print('┡' + '━' * (columns_len[0]) + '┯' +
               '━' * (columns_len[1]) + '┯' +

@@ -58,6 +58,15 @@ def test_4():
     })
 
 
+def test_5():
+    n_p = NanoProfiler(name='Test case from real.', autostart=True)
+    n_p._points[0]['time'] = 0
+    n_p._points.append({
+        'time': 10,
+        'label': 'This was not surprise for me...'
+    })
+
+
 # for run test_case 1 execute python3 test_manual.py 1
 test_case = 'test_{}'.format(sys.argv[1])
 func = locals()[test_case]

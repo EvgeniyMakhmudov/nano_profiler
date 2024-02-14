@@ -1,14 +1,12 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.2'
-
-long_description = open('readme.rst', encoding='utf-8').read()
+VERSION = '0.2.1'
 
 setup(
     name='nano_profiler',
     version=VERSION,
     description='Very simple profiler of time execution',
-    long_description=long_description,
+    long_description='See README.md for details',
     url='https://github.com/EvgeniyMakhmudov/nano_profiler',
     author='Makhmudov Evgeniy',
     author_email='john_16@list.ru',
